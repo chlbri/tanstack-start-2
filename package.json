@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",
-    "build": "vinxi build build --preset vercel",
+    "build:vercel": "vinxi build --preset vercel",
+    "build": "vinxi build",
     "start": "vinxi start"
   },
   "keywords": [],
