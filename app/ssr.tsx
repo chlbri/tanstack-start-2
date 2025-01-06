@@ -1,5 +1,3 @@
-// app/ssr.tsx
-/// <reference types="vinxi/types/server" />
 import {
   createStartHandler,
   defaultStreamHandler,
@@ -7,7 +5,7 @@ import {
 
 import { createRouter } from './router';
 
-export default createStartHandler({
+const handler = createStartHandler({
   createRouter,
   getRouterManifest: () => ({
     routes: {
@@ -27,4 +25,8 @@ export default createStartHandler({
       },
     },
   }),
-})(defaultStreamHandler);
+});
+
+const routing = handler(defaultStreamHandler);
+
+export default routing;
