@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+'use client';
+import { useState } from 'react';
 
 const useCounter = (initial = 0) => {
   const [value, setValue] = useState(initial);
@@ -12,14 +13,12 @@ const useCounter = (initial = 0) => {
 
 export const Counter = () => {
   const { value, increment } = useCounter(35);
-  useEffect(() => {
-    console.log('effect');
-  }, []);
 
   console.log('built');
   return (
     <button
       onClick={() => {
+        console.log('cliked'); //Even this cannot appear in the client console
         increment();
       }}
       className='border-2 border-red-600 px-3 py-1.5 rounded-lg'
